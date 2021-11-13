@@ -1,5 +1,6 @@
 <?php
-
+use App\Http\Controllers\Api\Cobacontroller;
+use App\Http\Controllers\Api\Groupscontroller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('', [cobacontroller::class, 'index']);
+Route::resources([
+    'friends' => CobaController::class,
+    'groups' => GroupsController::class
+]);
